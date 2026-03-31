@@ -16,7 +16,7 @@ protected double mtFcE(LocalDate f1, LocalDate f2) {...
 private double mtCbE(LocalDate f1, LocalDate f2) {…
 ```
 
-Bad smell :nombre poco explicativos en los metodos
+Bad smell :nombre poco explicativos en los metodos /n
 Solucion: Rename method
 
 ```java
