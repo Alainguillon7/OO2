@@ -26,3 +26,14 @@ public double returnMontoFacturado(){...
 
 public double returnMontoCobrado(){...
 ```
+
+---
+
+1.2  
+
+Bad smell: future envy  
+Refactoring: move method  
+
+---
+
+1.3   
