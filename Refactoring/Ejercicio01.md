@@ -152,3 +152,4 @@ private double calcularTotalSalarios(){
 return this.personal.stream().mapToDouble(p->p.getSalario()).sum()
 }
 ```
+---
