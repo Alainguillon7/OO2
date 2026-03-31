@@ -58,7 +58,7 @@ public void imprimirValores() {
 Bad smells:  
 long method  
 reinventa la rueda  
-temporary fields  
+Temporary Variable 
 
 Bad smell: reinventa la rueda  
 Refactoring: reeplace loop with pipeline  
@@ -72,8 +72,7 @@ public void imprimirValores() {
 	for (Empleado empleado : personal) {
 		totalSalarios = totalSalarios + empleado.getSalario();
 	}
-  totalEdades = this.personal.stream().mapToInt(p->p.getEdad()).sum()
-	promedioEdades = totalEdades / personal.size();
+    totalEdades = this.personal.stream().mapToInt(p->p.getEdad()).average().orElse(0);
 		
 	String message = String.format("El promedio de las edades es %s y el total de salarios es %s",        promedioEdades, totalSalarios);
 	
@@ -91,7 +90,7 @@ public void imprimirValores() {
 	double totalSalarios = 0;
 	
   totalSalarios = this.personal.stream().mapToDouble(p->p.getSalario()).sum();
-  totalEdades = this.personal.stream().mapToInt(p->p.getEdad()).sum().average().orElse(0);
+  promedioEdades = this.personal.stream().mapToInt(p->p.getEdad()).average().orElse(0);
 		
 	String message = String.format("El promedio de las edades es %s y el total de salarios es %s",        promedioEdades, totalSalarios);
 	
@@ -99,7 +98,7 @@ public void imprimirValores() {
 }
 ```
 
-Bad smell: variables innecesarias
+Bad smell: Temporary Variable
 Refactoring: eliminar variables no usadas o mal declaradas
 
 ```java
@@ -129,10 +128,10 @@ public void imprimirValores() {
 }
 
 private double calcularPromedioEdades(){
-return this.personal.stream().mapToInt(p->p.getEdad()).sum().average().orElse(0);
+return  this.personal.stream().mapToInt(p->p.getEdad()).average().orElse(0);
 }
 
-private int calcularTotalSalarios(){
+private double calcularTotalSalarios(){
 return this.personal.stream().mapToDouble(p->p.getSalario()).sum()
 }
 ```
@@ -146,10 +145,10 @@ public void imprimirValores() {
 }
 
 private double calcularPromedioEdades(){
-return this.personal.stream().mapToInt(p->p.getEdad()).sum().average().orElse(0);
+return  this.personal.stream().mapToInt(p->p.getEdad()).average().orElse(0);
 }
 
-private int calcularTotalSalarios(){
+private double calcularTotalSalarios(){
 return this.personal.stream().mapToDouble(p->p.getSalario()).sum()
 }
 ```
