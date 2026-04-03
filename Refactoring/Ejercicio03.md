@@ -1,4 +1,4 @@
-3
+3.1
 ```java
 public class CharRing {
     private char[] source;
@@ -71,3 +71,24 @@ public class IntRingTest {
     }
 }
 ```
+---
+3.2
+REFACTORINGS
+TIPO T???
+```java
+
+public abstract class Ring<T>{
+    protected T[] source;
+    protected int[] idx;
+
+    public Ring(T[] source) {
+        this.source = source;
+        this.idx = 0;
+    }
+
+    public T next() {
+        if (idx >= source.length)
+            idx = 0;
+        return source[idx++];
+    }
+}
